@@ -1282,7 +1282,7 @@
           برای مثال دو تا تابع زیر برای محاسبه فاکتوریل رو در نظر بگیرید:
         </p>
 
-        <pre><code block lang="elixir">
+        <pre><code block lang="python">
             def f_recur(1), do: 1
             def f_recur(n) do
               f_recur(n - 1) * n
@@ -1498,7 +1498,7 @@
       اش می‌شه
     </p>
 
-    <pre><code block lang="lisp">
+    <pre><code block lang="python">
       (+ (* 2 3) 4)
     </code></pre>
 
@@ -1526,7 +1526,7 @@
       sin(11 / 9 * pi) + 3 * cos(0) + 12
     </code></pre>
 
-    <pre><code block lang="lisp">
+    <pre><code block lang="python">
       (+ (sin (* (/ 11  9) π)) (* 3 (cos 0)) 12)
     </code></pre>
 
@@ -1537,7 +1537,7 @@
       هست:
     </p>
 
-    <pre><code block lang="lisp">
+    <pre><code block lang="python">
       (defun quadratic-solver (a b c)
         &quot;Solve the quadratic equation ax² + bx + c = 0.&quot;
         (let ((Δ² (- (* b b) (* 4 a c))))
@@ -1787,7 +1787,7 @@
           <code>min</code>،
           در نهایت به صورت یک لیست خروجی می‌ده همه شون رو:
         </p>
-        <pre><code block lang="lisp">
+        <pre><code block lang="python">
             (loop for i in *list_of_number*
               counting (evenp i) into evens
               counting (oddp i) into odds

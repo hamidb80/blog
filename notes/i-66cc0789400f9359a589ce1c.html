@@ -22,16 +22,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-light.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/nim.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/nim.min.js"></script>
 
     
-  <link rel="stylesheet" href="\blog\libs\style--T1724647940.css">
-  <script defer src="\blog\libs\page--T1724647940.js"></script>
+  <link rel="stylesheet" href="\blog\libs\style--T1724647613.css">
+  <script defer src="\blog\libs\page--T1724647613.js"></script>
 
     <title>
-      ✏ Life is like a game
+      ✏ Overlap of 2 Ranges
     </title>
   </head>
 
@@ -73,22 +73,22 @@
       <div class="container">
         <div>
           <ol path-breadcrumb class="breadcrumb">
-            life\life-is-like-a-game.html
+            programming\advent-of-code\2022\d04\i.html
           </ol>
         </div>
       </div>
 
       <div class="mobile-container container">
-        <div note-id="life-is-like-a-game-66cb3d8e50e82dab4eef25d9" class="mt-3 card mx-auto shadow-sm rounded note-view">
+        <div note-id="i-66cc0789400f9359a589ce1c" class="mt-3 card mx-auto shadow-sm rounded note-view">
           <div class="card-header py-2">
             <div class="row">
               <div class="col-md-6 col-12">
                 <i>ID: </i>
-                <code>life-is-like-a-game-66cb3d8e50e82dab4eef25d9</code>
+                <code>i-66cc0789400f9359a589ce1c</code>
               </div>
               <div class="col-md-6 col-12 text-end">
                 <span parse-unix-date>
-                  1724595598
+                  1724647305
                 </span>
                 <i class="bi bi-clock"></i>
               </div>
@@ -96,25 +96,37 @@
           </div>
           <div class="card-body">
             <article>
-    <h1>Life is like a game</h1>
+    <h1>
+      Overlap of 2 Ranges
+    </h1>
 
-    <figure>
-      <img alt src="\blog\assets\life\life-is-like-a-game.webp">
-      <figcaption>
-        <blockquote>
-          <div>
-            Life is just like a game.
-            First you have to learn rules of the game,
-            and then
-            <mark>
-              play it better then any one else
-            </mark>
-          </div>
-          <cite>Albert Einstein</cite>
-        </blockquote>
+    my solution
 
-      </figcaption>
-    </figure>
+    <pre><code block lang="nim">
+      func contains[T](r1, r2: Slice[T]): bool =
+        r1.a &gt;= r2.a and r1.b &lt;= r2.b
+
+      func fullyOverlap[T](r1, r2: Slice[T]): bool =
+        r1 in r2 or r2 in r1
+
+      func overlapImpl[T](r1, r2: Slice[T]): bool =
+        r1.a &lt;= r2.a and r1.b &gt;= r2.a
+
+      func overlap[T](r1, r2: Slice[T]): bool =
+        overlapImpl(r1, r2) or overlapImpl(r2, r1)
+    </code></pre>
+
+    <pre><code block lang="python">
+      FullyOverlap     = 0≥(a-c)×(b-d)
+      Partiallyoverlap = 0≥(a-d)×(b-c)
+    </code></pre>
+  
+    <cite>
+      <a href="https://github.com/codereport/Advent-of-Code-2022/blob/main/day04.apl">
+        https://github.com/codereport/Advent-of-Code-2022/blob/main/day04.apl
+      </a>
+    </cite>
+
   
   <div class="article-footer">
     <hr></hr>
@@ -131,20 +143,14 @@
               
   <span class="hashtag btn btn-sm btn-outline-primary mt-1">
     
-    #life
+    #programming
     
   </span>
 
   <span class="hashtag btn btn-sm btn-outline-primary mt-1">
     
-    #short
-    
-  </span>
-
-  <span class="hashtag btn btn-sm btn-outline-primary mt-1">
-    
-    #quote
-    
+    #aoc
+    2022 4
   </span>
 
             </div>

@@ -22,10 +22,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-light.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/nim.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/elixir.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/lisp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/nim.min.js"></script>
+
     
-  <link rel="stylesheet" href="\blog\libs\style--T1724639532.css">
-  <script defer src="\blog\libs\page--T1724639532.js"></script>
+  <link rel="stylesheet" href="\blog\libs\style--T1724647940.css">
+  <script defer src="\blog\libs\page--T1724647940.js"></script>
 
     <title>
       ✏ 8 زبان برنامه نویسی در 4 سال
@@ -1370,7 +1373,7 @@
           برای مثال دو تا تابع زیر برای محاسبه فاکتوریل رو در نظر بگیرید:
         </p>
 
-        <pre><code block lang="elixir">
+        <pre><code block lang="python">
             def f_recur(1), do: 1
             def f_recur(n) do
               f_recur(n - 1) * n
@@ -1586,7 +1589,7 @@
       اش می‌شه
     </p>
 
-    <pre><code block lang="lisp">
+    <pre><code block lang="python">
       (+ (* 2 3) 4)
     </code></pre>
 
@@ -1614,7 +1617,7 @@
       sin(11 / 9 * pi) + 3 * cos(0) + 12
     </code></pre>
 
-    <pre><code block lang="lisp">
+    <pre><code block lang="python">
       (+ (sin (* (/ 11  9) π)) (* 3 (cos 0)) 12)
     </code></pre>
 
@@ -1625,7 +1628,7 @@
       هست:
     </p>
 
-    <pre><code block lang="lisp">
+    <pre><code block lang="python">
       (defun quadratic-solver (a b c)
         &quot;Solve the quadratic equation ax² + bx + c = 0.&quot;
         (let ((Δ² (- (* b b) (* 4 a c))))
@@ -1875,7 +1878,7 @@
           <code>min</code>،
           در نهایت به صورت یک لیست خروجی می‌ده همه شون رو:
         </p>
-        <pre><code block lang="lisp">
+        <pre><code block lang="python">
             (loop for i in *list_of_number*
               counting (evenp i) into evens
               counting (oddp i) into odds

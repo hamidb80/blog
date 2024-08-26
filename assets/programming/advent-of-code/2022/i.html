@@ -1,0 +1,41 @@
+<note id="aoc-2022-04" timestamp="1724647305">
+  <article>
+    <h1>
+      Overlap of 2 Ranges
+    </h1>
+
+    <pre><code block lang="python">
+      func contains[T](r1, r2: Slice[T]): bool =
+        r1.a >= r2.a and r1.b <= r2.b
+
+      func fullyOverlap[T](r1, r2: Slice[T]): bool =
+        r1 in r2 or r2 in r1
+
+      func overlapImpl[T](r1, r2: Slice[T]): bool =
+        r1.a <= r2.a and r1.b >= r2.a
+
+      func overlap[T](r1, r2: Slice[T]): bool =
+        overlapImpl(r1, r2) or overlapImpl(r2, r1)
+    </code></pre>
+    <caption>
+      My solution
+    </caption>
+
+    <pre><code block lang="python">
+      FullyOverlap     = 0≥(a-c)×(b-d)
+      Partiallyoverlap = 0≥(a-d)×(b-c)
+    </code></pre>
+  
+    <cite>
+      <a href="https://github.com/codereport/Advent-of-Code-2022/blob/main/day04.apl">
+        https://github.com/codereport/Advent-of-Code-2022/blob/main/day04.apl
+      </a>
+    </cite>
+
+  </article>
+  
+  <tags>
+    #programming
+    #aoc 2022 4
+  </tags>
+</note>
