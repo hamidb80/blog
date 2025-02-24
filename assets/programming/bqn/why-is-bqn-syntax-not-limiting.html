@@ -18,7 +18,7 @@
 
     <p>
       I will first compare C-style syntax to LISP and then prove my point by the same intuition.
-      For a quick introduction if you are not familiar with LISP, the name comes from "List Processing". As the name suggests, it brings a lots of facilities to work (read, manipulate) with linked lists. But it's more than that! Even its syntax is bunch of linked lists. List items are represented inside parentheses, so it's full of (  ) s.
+      For a quick introduction if you are not familiar with LISP, the name comes from "List Processing". As the name suggests, it brings a lots of facilities to work (read, manipulate) linked lists. But it's more than that! Even its syntax is bunch of linked lists. List items are represented inside parentheses, so it's full of (  ) s.
     </p>
 
     <p>
@@ -26,7 +26,7 @@
     </p>
 
     <pre><code>
-      (defan delta (a b c) 
+      (defun delta (a b c) 
         (- (* b b) (* 4 a c)))
     </code></pre>
 
@@ -35,7 +35,7 @@
     </p>
     
     <pre><code>
-      int delta( int a, int b, int c) {
+      int delta(int a, int b, int c) {
         return b*b - 4*a*c;
       }
     </code></pre>
@@ -60,7 +60,7 @@
     </p>
 
     <pre><code>
-      {delta 1, 5, 6};
+      (delta 1, 5, 6);
     </code></pre>
 
     <p>
@@ -68,15 +68,12 @@
     </p>
 
     <pre><code>
-      {delta 1 5 6}
+      (delta 1 5 6)
     </code></pre>
 
     <p>
-      the only step left to be a LISP code is to convert <kbd>{}</kbd> to <kbd>()</kbd>.
       Well, as you saw, it's not that ambiguous!!
-    </p>
-
-    <p>
+      
       To your surprise, It would be seen so much simpler than OO-C-style code.
       In general, in OO languages, functions have at least 2 ways of calling:
     </p>
