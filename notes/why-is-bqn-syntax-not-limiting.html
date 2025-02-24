@@ -1,0 +1,326 @@
+<!DOCTYPE html><html>
+
+  <head>
+    
+  <meta charset="UTF-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
+    
+  <link crossorigin="anonymous" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link crossorigin rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Vazirmatn:wght@100..900&display=swap">
+
+  <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly.min.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-light.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/nim.min.js"></script>
+
+    
+  <link rel="stylesheet" href="\blog\libs\style--T1740416759.css">
+  <script defer src="\blog\libs\page--T1740416759.js"></script>
+
+    <title>
+      ✏ why is bqn syntax not limiting
+    </title>
+  </head>
+
+  <body class="bg-light pb-4">
+    <main>
+      
+  <nav data-bs-theme="dark" class="navbar navbar-expand-lg bg-primary py-1 px-3 mb-4">
+    <a href="/blog/" class="navbar-brand" smooth-link>
+      <i class="bi bi-journal-bookmark-fill"></i>
+      <span>
+        Keeep
+      </span>
+    </a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/blog/notes.html" class="nav-link" smooth-link>
+          <i class="bi bi-stickies"></i>
+          <span>Notes</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/blog/profile.html" class="nav-link" smooth-link>
+          <i class="bi bi-person-square"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/blog/info.html" class="nav-link" smooth-link>
+          <i class="bi bi-info-square"></i>
+          <span>Info</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+      <div class="container">
+        <div>
+          <ol path-breadcrumb class="breadcrumb">
+            programming\bqn\why-is-bqn-syntax-not-limiting.html
+          </ol>
+        </div>
+      </div>
+
+      <div class="mobile-container container">
+        <div note-id="why-is-bqn-syntax-not-limiting" class="mt-3 card mx-auto shadow-sm rounded note-view">
+          <div class="card-header py-2">
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <i>ID: </i>
+                <code>why-is-bqn-syntax-not-limiting</code>
+              </div>
+              <div class="col-md-6 col-12 text-end">
+                <span parse-unix-date>
+                  1740416157
+                </span>
+                <i class="bi bi-clock"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <article>
+    <h1>why is bqn syntax not limiting</h1>
+
+    <p>
+      As you may know or not, in BQN functions can  have only 1 or 2 argument(s). The syntax is as follows:
+    </p>
+    
+    <pre><code>
+      F x
+      w F x
+    </code></pre>
+
+    <p>
+      The function gets only right parameter when it is monadic (first one), and gets left and right argument when it is dyadic(second one).
+      One can think of it as a &quot;limitation&quot;, but it really is not. I will first compare C-style syntax to LISP and then prove my point by the same intuition.
+      For a quick introduction if you are not familiar with LISP, the name comes from &quot;List Processing&quot;. As the name suggests, it brings a lots of facilities to work (read, manipulate) with linked lists. But it&apos;s more than that! Even its syntax is bunch of linked lists. List items are represented inside parentheses, so it&apos;s full of (  ) s.
+    </p>
+
+
+    <p>
+      here&apos;s a typical <kbd>LISP</kbd> code for calculating delta.
+    </p>
+
+    <pre><code>
+      (defan delta (a b c) 
+        (- (* b b) (* 4 a c)))
+    </code></pre>
+
+    <p>
+      Here&apos;s the equivalent C-style code:
+    </p>
+    
+    <pre><code>
+      int delta( int a, int b, int c) {
+        return b*b - 4*a*c;
+      }
+    </code></pre>
+
+    <p>
+      For the equation  x^2 + 5.x + 6 = 0 we calculate delta in LISP as such:
+    </p>
+
+    <pre><code>
+      (delta 1 5 6)
+    </code></pre>
+
+    <p>
+      And in <kbd>C</kbd>:
+    </p>
+    <pre><code>
+      delta(1, 5, 6);
+    </code></pre>
+
+    <p>
+      A random programmer not familiar with LISP might say that the LISP version is wierd and ambiguous. Well I&apos;d argue that this is because of unfamiliarity. in the C-style version, if I move curly brackets, it will become:
+    </p>
+
+    <pre><code>
+      {delta 1, 5, 6};
+    </code></pre>
+
+    <p>
+      remove the <kbd>;</kbd> and  <kbd>,</kbd>
+    </p>
+
+    <pre><code>
+      {delta 1 5 6}
+    </code></pre>
+
+    <p>
+      the only step left to be a LISP code is to convert {} to ().
+      Well, as you saw, it&apos;s not that ambiguous!!
+    </p>
+
+    <p>
+      To your surprise, It would be seen so much simpler than OO-C-style code.
+      In general, in OO languages, functions have at least 2 ways of calling:
+    </p>
+
+    <pre><code>
+      function(a, b); // normall function call
+      a.function(b); // method call syntax
+    </code></pre>
+
+    <p>
+      Butin LISP, there is one and only one universal way. 
+    </p>
+
+    <pre><code>
+      (function a b)
+    </code></pre>
+
+    <p>
+      It&apos;s becoming interesting, right?
+
+      Back to our original debate, when you consider 2 styles of calling function (i.e. normall call and method call) it would be easily comparable to what BQN currently has.
+    </p>
+
+    <pre><code>
+      Function(x);
+      Function x
+  
+      w.Function(x);
+      w Function x
+    </code></pre>
+
+    <p>
+      A smart reader may ask: &quot;what will you do with more than 2 arguments&quot;?
+
+      It is not much hard, you ahould make tuple.
+    </p>
+
+    <pre><code>
+      delta(1, 5, 6);
+      delta [1, 5, 6]
+    </code></pre>
+
+    <p>
+      or can separate then into 2 pars
+    </p>
+
+    <pre><code>
+      1 delta [2, 3]
+      [1, 2] delta 3
+    </code></pre>
+
+    <p>
+      A sharp-eye reader may ask what will you do with function that have 0 arguments?
+
+      Remeber when defining a 0 argument function in C one can do this:
+    </p>
+
+    <pre><code>
+      float random() { ...
+    </code></pre>
+
+    <p>
+      or 
+    </p>
+
+    <pre><code>
+      float random( void ) { ...
+    </code></pre>
+
+    <p>
+      The same appies in BQN. You can pass empty.
+    </p>
+
+    <pre><code>
+      Random •
+    </code></pre>
+
+    <p>
+      the <kbd>•</kbd> means empty.
+
+      Or you can pass &quot;seed&quot;, which is more realistic in this case.
+    </p>
+
+    <pre><code>
+      Random 0.32
+    </code></pre>
+
+    <p>
+      Wanna random number between 2 numbers?
+    </p>
+
+    <pre><code>
+      [1, 10] Random 0.32
+    </code></pre>
+
+    <p>
+      Wanna send response to http request?
+    </p>
+
+    Express.js:
+
+    <pre><code>
+      res.send(&quot;hey&quot;)
+    </code></pre>
+
+    BQN
+    <pre><code>
+      res Send &quot;hey&quot;
+    </code></pre>
+
+    <p>
+      wanna set status code too?
+    </p>
+
+    <pre><code>
+      res Send [200, &quot;hey&quot;]
+    </code></pre>
+
+    <p>
+      This argument might not convince you at first. But hope it gave you some insights. 
+    </p>
+
+
+    <a href="https://mlochbaum.github.io/BQN/doc/context.html">
+      BQN&apos;s context-free grammar
+    </a>
+
+  
+  <div class="article-footer">
+    <hr></hr>
+    <small>
+      <ol id="footnotes">
+
+      </ol>
+    </small>
+  </div>
+</article>
+          </div>
+          <div class="card-footer">
+            <div class="tags">
+              
+  <span class="hashtag btn btn-sm btn-outline-primary mt-1">
+    
+    #lang
+    en
+  </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </body>
+</html>
