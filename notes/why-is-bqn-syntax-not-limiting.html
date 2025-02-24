@@ -27,8 +27,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/nim.min.js"></script>
 
     
-  <link rel="stylesheet" href="\blog\libs\style--T1740416930.css">
-  <script defer src="\blog\libs\page--T1740416930.js"></script>
+  <link rel="stylesheet" href="\blog\libs\style--T1740417059.css">
+  <script defer src="\blog\libs\page--T1740417059.js"></script>
 
     <title>
       ✏ why is BQN syntax not limiting
@@ -108,10 +108,13 @@
 
     <p>
       The function gets only right parameter when it is monadic (first one), and gets left and right argument when it is dyadic(second one).
-      One can think of it as a &quot;limitation&quot;, but it really is not. I will first compare C-style syntax to LISP and then prove my point by the same intuition.
-      For a quick introduction if you are not familiar with LISP, the name comes from &quot;List Processing&quot;. As the name suggests, it brings a lots of facilities to work (read, manipulate) with linked lists. But it&apos;s more than that! Even its syntax is bunch of linked lists. List items are represented inside parentheses, so it&apos;s full of (  ) s.
+      One can think of it as a &quot;limitation&quot;, but it really is not. 
     </p>
 
+    <p>
+      I will first compare C-style syntax to LISP and then prove my point by the same intuition.
+      For a quick introduction if you are not familiar with LISP, the name comes from &quot;List Processing&quot;. As the name suggests, it brings a lots of facilities to work (read, manipulate) with linked lists. But it&apos;s more than that! Even its syntax is bunch of linked lists. List items are represented inside parentheses, so it&apos;s full of (  ) s.
+    </p>
 
     <p>
       here&apos;s a typical <kbd>LISP</kbd> code for calculating delta.
@@ -133,7 +136,7 @@
     </code></pre>
 
     <p>
-      For the equation  x^2 + 5.x + 6 = 0 we calculate delta in LISP as such:
+      For the equation <latex>x^2 + 5.x + 6 = 0</latex> we calculate delta in LISP as such:
     </p>
 
     <pre><code>
@@ -164,7 +167,7 @@
     </code></pre>
 
     <p>
-      the only step left to be a LISP code is to convert {} to ().
+      the only step left to be a LISP code is to convert <kbd>{}</kbd> to <kbd>()</kbd>.
       Well, as you saw, it&apos;s not that ambiguous!!
     </p>
 
@@ -268,8 +271,7 @@
       Wanna send response to http request?
     </p>
 
-    Express.js:
-
+    Express.js
     <pre><code>
       res.send(&quot;hey&quot;)
     </code></pre>
